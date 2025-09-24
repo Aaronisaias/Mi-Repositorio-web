@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+ html,body {
+     margin: 0;
+     width: 100%;
+     height: 100vh;
+ }
+
+  body {
+    background-image: url("imagendefondo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  @keyframes bordes {
+    0% {
+        box-shadow:  0 0 10px yellow;
+    }
+
+    50% {
+        box-shadow:  0 0 20px rgb(29, 29, 255);
+    }
+
+    75% {
+        box-shadow:  0 0 30px white;
+    }
+
+    100% {
+        box-shadow: 0 0 40px rgb(5, 253, 5);
+    }
+  }
+
+  .principal {
+      position: relative;
+      margin: auto;
+      border: none;
+      border-radius: 30px;
+      width: 400px;
+      height: 700px;
+      box-sizing: border-box;
+      margin-top: 100px;
+      animation: bordes;
+      animation-duration: 5s;
+      animation-timing-function: ease;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+  }
+
+  section .banner {
+    background-image: url("miniportda.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    top: 0;
+    height: 200px;
+    width: 100%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+
+  section .presentacion {
+    background-color: rgb(255, 0, 0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    color: white;
+  }
+
+  .presentacion img {
+    border-radius: 50%;
+    box-shadow: 0 0 10px blue;
+  }
+
+  .presentacion img:hover {
+    animation: img_efecto;
+    animation-duration: 5s;
+    animation-fill-mode: both;
+  }
+
+  .circle-1 {
+    width: 240px;
+    height: 230px;
+    border-radius: 50%;
+    background: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .circle-1:hover {
+    animation: circulo1;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+  }
+
+  @keyframes img_efecto {
+    to {
+        transform: rotate(360deg);
+    }
+  }
+
+  @keyframes circulo1 {
+     from {
+        box-shadow: 0 0 0px rgb(27, 23, 255);
+     }
+
+     to {
+        box-shadow: 0 0 50px rgb(27, 23, 255);
+     }
+  }
+
+  .presentacion .sub {
+    position: relative;
+    top: -30px;
+    font-size: 20px;
+  }
+
+  .presentacion .subtext {
+    position: relative;
+    top: -50px;
+    font-size: 15px;
+  }
+
+
+  section .abridor_poderes {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: max-content;
+    height: max-content;
+    margin: auto;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .abridor_poderes img {
+    position: relative;
+    top: -10px;
+    cursor: pointer;
+  }
+
+  .abridor_poderes img:hover {
+    animation: efecto_abridor;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+  }
+
+  
+
+  @keyframes efecto_abridor {
+    to {
+        filter: drop-shadow(0 0 30px white);
+        width: 70px;
+        height: 90px;
+    }
+  }
+
+  .poderes {
+    position: relative;
+    top: -70px;
+    background-color: rgb(255, 255, 255,0.6);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding-top: 70px;
+    opacity: 1;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    height: 128px;
+  }
+
+  .poder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+
+
+</style>
+<body>
+
+    <section class="principal">
+        <div class="banner"></div>
+        <div class="presentacion">
+            <div class="circle-1">
+            <img src="/Etiqueta-pokemon-Charizard.webp" alt="" width="240px" height="230px">
+            </div>
+            <h1>Aaron isaias Medina</h1>
+            <h2 class="sub">Programador Web</h2>
+            <h2 class="subtext">Diseñador Web</h2>
+        </div>
+        <div class="caja_poderes">
+
+        <div class="abridor_poderes">
+            <img src="/abridor.png" alt="" width="50px" height="70px">
+        </div>
+        <div class="poderes">
+                <div class="poder">
+                <img src="/poder1.png" alt="" width="70px" height="70px">
+                <h1>Poder 1</h1>
+                </div>
+                <div class="poder">
+                <img src="/pder2.png" alt="" width="70px" height="70px">
+                <h1>Poder 2</h1>
+                </div>
+                <div class="poder">
+                <img src="/poder3.webp" alt="" width="70px" height="70px">
+                <h1>Poder 3</h1>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+</body>
+</html>

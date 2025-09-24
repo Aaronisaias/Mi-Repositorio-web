@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Principal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <style>
+    html,
+    body {
+      min-height: 100vh;
+      width: 100%;
+      margin: 0;
+    }
+
+    body {
+      background-image: url("fondodecfe.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      box-shadow: inset 0 0 30px brown;
+      margin: auto;
+      animation: fondoefecto;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease;
+      animation-direction: alternate;
+    }
+
+    @keyframes fondoefecto {
+      0% {
+        box-shadow: inset 0 0 30px brown;
+      }
+
+      50% {
+        box-shadow: inset 0 0 50px brown;
+      }
+
+      75% {
+        box-shadow: inset 0 0 70px brown;
+      }
+
+      100% {
+        box-shadow: inset 0 0 100px brown;
+      }
+    }
+
+    nav {
+      position: relative;
+      top: 0;
+      width: 100%;
+      height: max-content;
+    }
+
+    nav .menus {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 70px;
+    }
+
+    nav h1 {
+      font-weight: bold;
+      color: white;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      cursor: pointer;
+    }
+
+    nav .logo {
+      background-image: url("logocafe.png");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 140px;
+      height: 140px;
+      margin: auto;
+    }
+
+    header {
+      position: relative;
+      background-image: url("fondo-cafe.png");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 600px;
+    }
+
+    header .titulo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+    }
+
+    .titulo h1 {
+      font-size: 70px;
+      text-shadow: 0 0 1px black;
+    }
+
+    .titulo h5 {
+      margin-top: -20px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 20px;
+    }
+
+    .titulo .botones {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    .botones button {
+      width: 220px;
+      height: max-content;
+      padding: 15px;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    .botones button:last-child {
+      background: none;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .botones button:first-child {
+      border: none;
+    }
+
+    @keyframes efecto-Textos {
+      from {
+        color: white;
+      }
+
+      to {
+        color: chocolate;
+      }
+    }
+
+    nav h1:hover {
+      animation: efecto-Textos;
+      animation-duration: 0.6s;
+      animation-timing-function: ease;
+      animation-iteration-count: initial;
+      animation-fill-mode: both;
+    }
+
+    .imagenes {
+      position: relative;
+      background-color: black;
+      width: 100%;
+      height: max-content;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      box-sizing: border-box;
+      padding: 40px;
+      gap: 30px;
+    }
+
+    .imagenes img {
+      animation: efecto-imagenes;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-range: entry 20% cover 50%;
+      animation-timeline: view();
+      width: 100%;
+      height: 500px;
+      border-radius: 10px;
+    }
+
+    @keyframes efecto-imagenes {
+      from {
+        opacity: 0;
+        transform: translate(0, 120px);
+      }
+      to {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+
+    .carga {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 15px;
+      background-color: brown;
+      animation: carguar;
+      animation-timeline: scroll(root);
+      animation-fill-mode: both;
+      z-index: 1;
+    }
+
+    @keyframes carguar {
+      0% {
+        opacity: 0;
+        width: 0;
+      }
+
+      100% {
+        opacity: 1;
+        width: 100%;
+      }
+    }
+
+    .espacio_clientes {
+      position: relative;
+      width: 100%;
+      background-color: black;
+      height: 430px;
+    }
+
+    .imagenes_esp {
+      position: relative;
+      top: 20px;
+      display: flex;
+      flex-direction: row;
+      gap: 100px;
+    }
+
+    .imagenes_esp img {
+      background-color: #efebe9;
+      border-radius: 50%;
+      animation: movimiento_img;
+      animation-duration: 1s;
+      animation-direction: alternate;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes movimiento_img {
+      from {
+        transform: translate(0);
+      }
+
+      to {
+        transform: translate(120px);
+      }
+    }
+
+    .titulos_esp {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      top: 40px;
+    }
+
+    .titulos_esp h1 {
+      color: white;
+      font-family: serif;
+      font-size: 40px;
+    }
+
+    .titulos_esp h4 {
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      margin-top: -15px;
+    }
+
+    .botones_esp {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      top: 80px;
+      gap: 10px;
+    }
+
+    .botones_esp button:first-child {
+      background-color: chocolate;
+      cursor: pointer;
+      border: none;
+      width: 240px;
+      height: 60px;
+      font-size: 20px;
+      color: white;
+      border-radius: 10px;
+    }
+
+    .botones_esp button:last-child {
+      background: none;
+      cursor: pointer;
+      border: 3px solid white;
+      color: wheat;
+      width: 230px;
+      height: 70px;
+      font-size: 30px;
+    }
+
+    .asesoramiento_section {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      background-color: rgb(44, 42, 42);
+    }
+
+    .conteiner_principal {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .asesoramiento_section .imgs img {
+      position: relative;
+      top: 20px;
+      width: 537px;
+      height: 400px;
+      margin-left: -20px;
+      animation: imgs-efecto;
+      animation-timing-function: linear;
+      animation-timeline: view();
+      animation-range: entry 30% cover 50%;
+      animation-fill-mode: both;
+      opacity: 0;
+    }
+
+    @keyframes imgs-efecto {
+      from {
+        opacity: 0;
+        transform: translate(0, 140px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+
+    .estadisticas {
+      position: relative;
+      top: 50px;
+      width: 60%;
+      height: 450px;
+      background-color: chocolate;
+      border-radius: 10px;
+      color: white;
+    }
+
+    .conteiner1 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      top: 50px;
+    }
+
+    .conteiner1 h1 {
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+      font-size: 33px;
+    }
+
+    .conteiner1 p {
+      position: relative;
+      font-weight: bold;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+      font-size: 18px;
+      top: -20px;
+    }
+
+    .conteiner2 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .conteiner2 h2 {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .conteiner2 h3 {
+      position: relative;
+      top: -25px;
+      font-size: 24px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .conteiner3 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .conteiner3 h2 {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .conteiner3 h3 {
+      position: relative;
+      top: -25px;
+      font-size: 24px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .minis_estadis {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      gap: 140px;
+      top: 80px;
+    }
+
+    footer {
+      position: relative;
+      width: 100%;
+      height: 590px;
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer_titulos {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .footer_titulos h1 {
+      font-size: 39px;
+      color: black;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .footer_titulos h2 {
+      position: relative;
+      top: 25px;
+      font-size: 24px;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      color: chocolate;
+      text-decoration: overline;
+    }
+
+    .footer_titulos p {
+      position: relative;
+      top: -15px;
+      font-size: 18px;
+      font-weight: bold;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .footer_redes {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      gap: 180px;
+    }
+
+    .footer_redes div {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      outline: 2px solid black;
+      border-radius: 20px;
+      width: 700px;
+      height: 100px;
+      margin: 40px;
+    }
+
+    @keyframes facebook_efecto {
+      0% {
+        box-shadow: 0 0 20px blue;
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+
+      50% {
+        box-shadow: 0 0 40px white;
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+
+      75% {
+        box-shadow: 0 0 60px grey;
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+
+      100% {
+        box-shadow: 0 0 80px blue;
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+    }
+
+    @keyframes youtube_efecto {
+      0% {
+        box-shadow: 0 0 20px red;
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+
+      50% {
+        box-shadow: 0 0 40px white;
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+
+      75% {
+        box-shadow: 0 0 60px black;
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+
+      100% {
+        box-shadow: 0 0 80px red;
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+    }
+
+    @keyframes instagram_efecto {
+      0% {
+        box-shadow: 0 0 20px rgb(255, 105, 130);
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+
+      50% {
+        box-shadow: 0 0 40px rgb(173, 0, 173);
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+
+      75% {
+        box-shadow: 0 0 60px yellow;
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+
+      100% {
+        box-shadow: 0 0 80px rgb(255, 105, 130);
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+    }
+
+    .footer_redes div:nth-child(1):hover {
+      animation: instagram_efecto;
+      animation-duration: 4.9s;
+      animation-direction: alternate;
+      animation-timing-function: ease;
+      animation-iteration-count: infinite;
+      cursor: pointer;
+    }
+
+    .footer_redes div:nth-child(3):hover {
+      animation: youtube_efecto;
+      animation-duration: 4.9s;
+      animation-direction: alternate;
+      animation-timing-function: ease;
+      animation-iteration-count: infinite;
+      cursor: pointer;
+    }
+
+    .footer_redes div:nth-child(2):hover {
+      animation: facebook_efecto;
+      animation-duration: 4.9s;
+      animation-direction: alternate;
+      animation-timing-function: ease;
+      animation-iteration-count: infinite;
+      cursor: pointer;
+    }
+
+    .footer_exts_imgs {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    .conteiner_exts h4 {
+      position: relative;
+      top: 10px;
+      font-size: 20px;
+      color: black;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .conteiner_exts {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer_extra {
+      position: relative;
+      display: flex;
+      justify-content: end;
+      top: 30px;
+      right: 25px;
+    }
+
+    .footer_extra img {
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <section class="carga">
+      <div></div>
+    </section>
+
+    <header>
+      <nav>
+        <div class="logo"></div>
+        <div class="menus">
+          <h1>Inicio</h1>
+          <h1>Nuestra Historia</h1>
+          <h1>Contacto</h1>
+          <h1>Mi Cuenta</h1>
+          <h1>Catalogo</h1>
+          <h1>Linea Hogar</h1>
+        </div>
+      </nav>
+
+      <div class="titulo">
+        <h1>
+          Bienvenido a Arcafe
+          <h5 class="mini_info">
+            Con más de 50 años de experiencia, somos tu elección en café de
+            calidad
+          </h5>
+        </h1>
+        <div class="botones">
+          <button>Explora nuestro Cafe</button>
+          <button>Conoce nuestra historia</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="imagenes">
+      <img src="/imagen1.png" alt="" />
+      <img src="/imagen2.png" alt="" />
+      <img src="/imagen3.png" alt="" />
+      <img src="/imagen4.png" alt="" />
+    </section>
+
+    <section class="espacio_clientes">
+      <div class="imagenes_esp">
+        <img src="/logocafe.png" alt="" width="120" height="120" />
+        <img src="/logocafe.png" alt="" width="120" height="120" />
+        <img src="/logocafe.png" alt="" width="120" height="120" />
+        <img src="/logocafe.png" alt="" width="120" height="120" />
+        <img src="/logocafe.png" alt="" width="120" height="120" />
+        <img src="/logocafe.png" alt="" width="120" height="120" />
+      </div>
+      <div class="titulos_esp">
+        <h1>Espacio Clientes</h1>
+        <h4>Ingresa para hacer tu pedido.</h4>
+      </div>
+      <div class="botones_esp">
+        <button>Bares y restaurantes</button>
+        <button>Linea hogar</button>
+      </div>
+    </section>
+
+    <section class="asesoramiento_section">
+      <div class="conteiner_principal">
+        <div class="estadisticas">
+          <div class="conteiner1">
+            <h1>Asesoramiento Integral para tu negocio</h1>
+            <p>
+              Para la puesta en marcha de su emprendimiento o para <br />el
+              crecimiento de su empresa con la colaboración de <br />nuestro
+              equipo comercial que lo ayudará a tomar las mejores decisiones
+              <br />para que su negocio funcione.
+            </p>
+          </div>
+          <div class="minis_estadis">
+            <div class="conteiner2">
+              <h2>1800+</h2>
+              <h3>Clientes satisfechos</h3>
+            </div>
+            <div class="conteiner3">
+              <h2>50</h2>
+              <h3>Años de experiencia</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="imgs">
+          <img src="/maquinacafe.png" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer_titulos">
+        <h2>Nuestra Redes</h2>
+        <h1>Arcafe</h1>
+        <p>
+          Guiados por el compromiso con la excelencia, nos dedicamos a
+          proporcionar el café supremo,<br />
+          elevando constantemente los estándares de calidad para ofrecer la
+          experiencia de café definitiva.
+        </p>
+      </div>
+      <div class="footer_redes">
+        <div>
+          <img src="/instagram.svg" alt="" width="65px" height="65px" />
+        </div>
+        <div><img src="/facebook.svg" alt="" width="65px" height="65px" /></div>
+        <div><img src="/youtube.svg" alt="" width="65px" height="65px" /></div>
+      </div>
+      <div class="footer_extra">
+        <div class="conteiner_exts">
+          <h4>Redes Extras</h4>
+          <div class="footer_exts_imgs">
+            <div>
+              <img src="/whatsapp.svg" alt="" width="40px" height="40px" />
+            </div>
+            <div>
+              <img
+                src="/facebook-messenger.svg"
+                alt=""
+                width="40px"
+                height="40px"
+              />
+            </div>
+            <div>
+              <img src="/twitter-alt.svg" alt="" width="40px" height="40px" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
